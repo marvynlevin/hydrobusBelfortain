@@ -14,7 +14,7 @@
 
 ## Documents liés au projet
 - [Analyse des besoins-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_analyse.pdf)
-- [MCD & MLD](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_modeleConceptionRelationnel.pdf)
+- [MCD & MLD-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_modeleConceptionRelationnel.pdf)
 - [Etude choix poste-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_etude.pdf)
 - [Notice installation poste-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_architecture.pdf)
 
