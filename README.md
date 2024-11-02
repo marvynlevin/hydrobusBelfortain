@@ -28,7 +28,7 @@
 - **Objectifs du système** :
   - **Gestion de flotte** : Identification et suivi des bus, leurs modèles, leur consommation en hydrogène, et les informations d'entretien.
   - **Suivi des réservoirs d'hydrogène** : Surveillance de l’état et du positionnement des réservoirs sur chaque bus, enregistrement des contrôles de maintenance, et suivi de la durée de vie des réservoirs.
-  - **Performances et consommation** : Collecte de données pour optimiser les itinéraires et réduire la consommation en hydrogène des bus.
+  - **Performances et consommation** : Collecte de données sur les pleins et les contrôles pour optimiser les itinéraires et réduire la consommation en hydrogène des bus.
 
 ### 2. Types de Fichiers
 - **Modèle Conceptuel de Données (MCD)** : Réalisé avec un outil graphique dédié [looping](https://www.looping-mcd.fr/) et disponible au format `.loo`.
