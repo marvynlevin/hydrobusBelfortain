@@ -14,7 +14,7 @@
 
 ## Documents liés au projet
 - [Analyse des besoins-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_analyse.pdf)
-- [MCD & MLD-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_modeleConceptionRelationnel.pdf)
+- [MCD & MLD](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_modeleConceptionRelationnel.pdf)
 - [Etude choix poste-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_etude.pdf)
 - [Notice installation poste-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_architecture.pdf)
 
@@ -28,15 +28,16 @@
 - **Objectifs du système** :
   - **Gestion de flotte** : Identification et suivi des bus, leurs modèles, leur consommation en hydrogène, et les informations d'entretien.
   - **Suivi des réservoirs d'hydrogène** : Surveillance de l’état et du positionnement des réservoirs sur chaque bus, enregistrement des contrôles de maintenance, et suivi de la durée de vie des réservoirs.
-  - **Performances et consommation** : Collecte de données sur les pleins et les contrôles pour optimiser les itinéraires et réduire la consommation en hydrogène des bus.
+  - **Performances et consommation** : Collecte de données pour optimiser les itinéraires et réduire la consommation en hydrogène des bus.
 
 ### 2. Types de Fichiers
 - **Modèle Conceptuel de Données (MCD)** : Réalisé avec un outil graphique dédié [looping](https://www.looping-mcd.fr/) et disponible au format `.loo`.
 
 ### 3. Recherche Documentaire
 - **Ressources** :
-  - [Documentation SQL et bases de données relationnelles](https://mariadb.org/documentation/)
-  - [Références sur la conception de MCD et le modèle entité-association](https://developer.mozilla.org/fr/)
+  - [Réalisation MCD](./docs/TD1introMCD.pdf)
+  - [De MCD à MLD](./docs/TD2MCDtoMR.pdf)
+  - [Introduction au SQL](./docs/S2_Mysql_tp2_v23_correction_etu.pdf)
   - [Informations flotte actuelle à Belfort](https://www.optymo.fr/bus/bus-a-hydrogene/)
 
 ### 4. Répartition du Travail
