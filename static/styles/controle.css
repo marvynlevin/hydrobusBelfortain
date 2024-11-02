@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+main{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 25%;
+    height: calc(100% - 110px);
+}
+
+p{
+    margin: 0;
+}
+
+.list-control{
+    grid-column: 1;
+    grid-row: 1/3;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 2px dashed #2A7AC1;
+}
+
+.head-text{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 25px;
+    margin: 20px;
+
+}
+
+.head-text .serach_bar{
+    margin-left: auto;
+}
+
+.list-control-body{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    align-items: center;
+}
+
+
+summary{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px 0 10px;
+}
+
+summary img{
+    padding: 10px;
+    width: 10%;
+}
+
+summary p{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+summary #plus_button{
+    margin-left: auto;
+    width: 5%;
+}
+
+details{
+    box-shadow: 0px 0px 8.6px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin: 15px;
+    height: fit-content;
+}
+
+.body{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    column-gap: 10px;
+    margin: 5px 20px 15px 20px;
+    padding-top: 5px;
+    border-top: solid 1px #BEBEBE;
+}
+
+.body .date{
+    grid-column: 1/3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid 1px #BEBEBE;
+}
+
+.body .date *{
+    margin: 0;
+    margin-left: 15px;
+}
+
+.body .date p{
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.body .edit{
+    display: flex;
+    margin-left: auto;
+    justify-content: right;
+}
+
+.body .edit *{
+    margin-left: 5px;
+    width: 30%;
+}
+
+.body .reservoir{
+    grid-column: 1/3;
+    grid-row: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    border-bottom: solid 1px #BEBEBE;
+
+}
+
+.body .reservoir *{
+    margin: 0 0 0 15px;
+}
+
+.body .compte_rendu{
+    grid-column: 1/4;
+    grid-row: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.body .compte_rendu *{
+    margin-left: 15px;
+}
+
+.body .compte_rendu p{
+    margin: 0 0 0 15px;
+}
+
+.record{
+    width: 100%;
+    height: 150%;
+    border-radius: 15px;
+    border: #2A7AC1 2px dashed;
+}
+
+.record-form .record-rapport-box{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.record-form .record-rapport-box textarea{
+    margin-left: auto;
+    margin-right: 25px;
+    padding: 10px 0 0 10px;
+    height: 100px;
+    width: 65%;
+    border:none;
+    border-radius: 15px;
+    resize: none;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25) inset;
+}
+
+.record-rapport-box label{
+    margin-left: 20px;
+    min-width: 200px;
+}
+
+.record-date{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.record-date label{
+    margin-left: 20px;
+    min-width: 200px
+
+}
+
+.record-date input{
+    margin: 0;
+    margin-right: auto;
+}

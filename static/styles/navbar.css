@@ -1,0 +1,131 @@
+:root{
+    --navbar-height: 60px;
+}
+
+
+
+nav{
+    height: var(--navbar-height);
+    width: 100vw;
+
+    background-color: rgb(42, 122, 193);
+
+    display: flex;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
+
+nav a.logo {
+    margin: auto auto auto 20px;
+
+    height: calc(var(--navbar-height) / 2);
+}
+
+nav .logo img {
+    height: 100%;
+    width: auto;
+}
+
+nav .buttons {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+
+    width: 50%;
+    height: var(--navbar-height);
+}
+
+nav .buttons ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+nav .buttons ul li {
+    margin: auto;
+    padding: 0 10px;
+
+    height: var(--navbar-height);
+
+    display: flex;
+}
+
+nav .buttons ul li a {
+    color: #fff;
+    text-decoration: none;
+    margin: auto;
+}
+
+nav .buttons ul li a.nametag {
+    font-weight: bolder;
+}
+
+nav .buttons ul li ul {
+    display: none;
+
+    position: absolute;
+    width: 200px;
+
+    top: var(--navbar-height);
+    transform: translateY(-5px);
+
+    background: rgb(242, 245, 252);
+    border-radius: 15px;
+}
+
+nav .buttons ul li:hover {
+    background: #6CAEE7;
+    color: #000;
+    transition: all 0.1s ease-in-out;
+}
+
+nav .buttons ul li:hover ul,
+nav .buttons ul li *:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+nav .buttons ul li:hover ul li {
+    margin: 2px auto 2px 0;
+    height: 2.5rem;
+}
+
+nav .buttons ul li:hover ul li a {
+    color: #000;
+
+    margin: auto auto auto 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+nav .buttons ul li:hover ul li:hover {
+    background: none;
+}
+
+nav .buttons ul li:hover ul li:hover a {
+    color: rgba(0, 0, 0, 0.6);
+    transition: color 0.1s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+        nav .buttons {
+            margin-left: 90px;
+            width: calc(100% - 200px - (var(--navbar-height) / 2));
+        }
+}

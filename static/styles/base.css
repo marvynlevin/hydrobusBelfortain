@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+
+    font-family: 'League Spartan', sans-serif;
+    color: #000000;
+    background: #ffffff;
+
+    overflow-x: hidden;
+}
+
+body.popup_opened {
+    overflow: hidden;
+}
+
+main {
+    margin: 90px 20px 20px 20px;
+}
+
+.big_docker {
+    border: 2px dashed #2A7AC1;
+    border-radius: 19px;
+
+    width: 100%;
+    height: calc(100% - 20px);
+
+    padding: 10px 0;
+
+    transition: 0.15s ease-in-out;
+}
+
+.big_docker.full_width {
+    width: calc(100% - 20px);
+}
+
+.big_docker.full_height {
+    height: calc(70vh - 20px);
+}
+
+.big_docker h1, .big_docker h2 {
+    margin-left: 20px;
+}
+
+.no_border {
+    border: none;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+.yeet_padding {
+    padding: 10px;
+}
+
+.scroll_y {
+    overflow-y: scroll;
+}
+
+.row_flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.column_flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.width_100 {
+    width: 100%;
+}
+
+.width_50 {
+    width: calc(50% - 20px);
+}
+
+.drop_shadow {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+.inner_shadow {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25) inset;
+}
+
+.list {
+    width: 100%;
+}
+
+.list.second_column {
+    /*column-count: 2;*/
+    /*column-width: calc(50% - 30px);*/
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.list details.card {
+    padding: 10px;
+    margin: 10px 15px;
+    break-inside: avoid;
+
+    border-radius: 9px;
+
+    width: calc(100% - 50px);
+}
+
+.list details.card summary {
+    height: 60px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+
+    user-select: none;
+
+    transition: 0.15s ease-in-out;
+}
+
+.list details.card summary svg {
+    margin: auto 20px auto 10px;
+}
+
+
+.list details.card[open] summary ~ * {
+  animation: open 0.3s ease-in-out;
+}
+
+@keyframes open {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.list details.card summary h2, .list details.card summary h3 {
+    width: 70%;
+}
+
+.list details.card summary {
+  width: 100%;
+  padding: 0.5rem 0;
+  position: relative;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 300;
+  list-style: none;
+}
+
+.list details.card summary::-webkit-details-marker {
+  display: none;
+}
+
+.list details.card summary:after {
+  content: "+";
+  color: black;
+  position: absolute;
+  line-height: 0;
+  margin-top: 0.75rem;
+  font-size: 3rem;
+  right: 0;
+  font-weight: 200;
+  transform-origin: center;
+  transition: 0.1s linear;
+}
+
+.list details.card[open] summary:after {
+  transform: rotate(45deg) ;
+  font-size: 3rem;
+}
+
+.list details.card summary {
+  outline: 0;
+}
+
+.list details.card .body .left, .list details.card .body .right {
+    width: calc(50% - 10px);
+    margin: 0 5px;
+}
+
+.list details.card .body .full{
+    width: calc(100% - 10px);
+    margin: 0 5px;
+}
+
+.list details.card .body .card_actions {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.list details.card .body .card_actions svg {
+    margin: auto 2px;
+
+    cursor: pointer;
+}
+
+.list details.card .body .info {
+    width: calc(100% - 20px);
+    padding: 5px;
+    border-bottom: 1px solid #BEBEBE;
+    margin: 5px 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    min-height: 40px;
+    height: fit-content;
+}
+
+
+.list details.card .body .i_love_you {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.list details.card .body .i_love_you .card_actions {
+    margin-bottom: auto;
+}
+
+.list details.card .body .i_love_you .card_actions svg {
+    height: 24px;
+    width: 24px;
+    padding: 5px;
+
+    border-radius: 5px;
+
+    transition: background 0.15s ease-in-out;
+}
+
+.list details.card .body .i_love_you .card_actions svg:hover {
+    transition: background 0.15s ease-in-out;
+    background: rgba(108, 174, 231, 0.25);
+}
+
+.list details.card .body .info h4 {
+    margin: auto 5px auto 10px;
+    font-weight: bolder;
+}
+
+.list details.card .body .info p {
+    margin: auto 0 auto auto;
+    font-weight: lighter;
+    text-align: right;
+
+    word-wrap: anywhere;
+}
+
+@media (max-width: 1200px) {
+    .list details.card summary {
+        font-size: 1em;
+    }
+
+    .list details.card .body .info {
+        width: 100%;
+    }
+
+    .list details.card .body .info p {
+        max-width: inherit;
+    }
+
+    .list details.card .body {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+.list details.card .popup {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+    transition: none;
+
+    background: rgba(0, 0, 0, 0.5);
+}
+.list details.card .popup.opened {
+    display: block;
+}
+
+.list details.card .popup .content {
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: #FDFDFD;
+    border-radius: 7px;
+}
+
+.list details.card .popup .content .popup_head .popup_close {
+    margin-left: auto;
+    width: 30px;
+    height: 30px;
+}
+
+.list details.card .popup .content .popup_head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.list details.card .popup .content .popup_head *:not(svg) {
+    width: 80%;
+    font-size: 1.2em;
+    margin: auto auto auto 20px;
+}
+
+.list details.card .popup.delete .action_buttons {
+    width: 100%;
+}
+
+
+.list details.card .popup.delete .action_buttons button {
+    margin: auto;
+}
+.list details.card .popup.delete .action_buttons form {
+    margin: 0;
+}
+
+.list details.card .popup.delete button.cancel {
+    background: #8D8D8D;
+}
+
+.list details.card .popup.delete button.cancel:hover {
+    background: #616161;
+    color: #fff;
+}
+
+.list details.card .popup.delete button:not(.cancel) {
+    background: #F44343;
+}
+
+
+.list details.card .popup.delete button:not(.cancel):hover {
+    color: #fff;
+    background: #ba2222;
+}
+
+
+.fixed {
+    position: fixed;
+}
+
+.auto_horizontal_margin {
+    margin: 0 auto;
+}
+
+.no_margin_padding {
+    margin: 0;
+    padding: 0;
+}
+
+.no_left_margin {
+    margin-left: 0;
+}
+
+.no_right_margin {
+    margin-right: 0;
+}
+
+
+
+button, .button {
+    background: #2A7AC1;
+
+    border-radius: 7px;
+    border: none;
+
+    color: #fff;
+    font-weight: bold;
+
+    padding: 10px 20px;
+    display: block;
+    width: fit-content;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: 0.1s ease-in;
+}
+
+button:hover, button:focus,
+.button:hover, .button:focus {
+    background: #6CAEE7;
+    color: #000;
+    transition: 0.1s ease-in;
+}
+
+
+form {
+    width: 100%;
+}
+
+form .field {
+    margin: 5px auto;
+
+    padding: 0 10px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+form .field label {
+    font-weight: lighter;
+    width: 100px;
+}
+
+form.spaced {
+    padding: 20px 0;
+}
+
+form.spaced .field {
+    margin: 20px auto;
+}
+
+form input, form select {
+    width: 175px;
+
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.25) inset;
+    background: #FDFDFD;
+
+    border-radius: 7px;
+    border: none;
+
+    outline: none;
+
+    padding: 7px;
+    margin: 2px;
+}
+
+form input::placeholder {
+    font-size: 0.7rem;
+}
+
+form button, .popup button {
+    margin: 5px auto 5px 20px;
+}
+
+.content_box {
+    padding: 0 10px 10px 10px;
+}
+
+.content_box button, .content_box .button {
+    margin: 30px 15px;
+}
+
+.content_box button:last-child, .content_box .button:last-child {
+    margin-bottom: 10px;
+}
+
+
+
+
+.page_formatter {
+    width: 100%;
+}
+
+.big_docker {
+    width: calc(50% - 20px);
+    margin: 10px;
+}
+
+.big_docker.full_width {
+    width: calc(100% - 25px);
+}
+
+.child:first-child {
+    margin-top: 0;
+}
+
+.child:last-child {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.list_container {
+    height: 65%;
+    padding: 10px 0;
+}
+
+.models_list {
+    min-height: calc(70vh - 20px);
+}
+
+.fix_height {
+    height: 400px;
+}
+
+.width_70 {
+    width: 60%;
+}
+
+.width_30 {
+    width: 30%;
+}
+
+.compte_rendu_area{
+    resize: none;
+    height: 80px;
+    border: none;
+    border-radius: 15px;
+    background: #FDFDFD;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25) inset;
+}
+
+
+
+
+.notifications {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.notifications .notif {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0;
+
+    width: 250px;
+
+    border: 4px solid #000;
+    background: #fdfdfd;
+
+    border-radius: 7px;
+}
+
+.notifications .notif.info {
+    border: 4px solid rgb(33, 102, 193);
+    background: rgb(198, 212, 235);
+}
+
+.notifications .notif.error {
+    border: 4px solid rgb(193, 33, 33);
+    background: rgb(235, 198, 198);
+}
+
+.notifications .notif.success {
+    border: 4px solid rgb(33, 193, 84);
+    background: rgb(198, 235, 211);
+}
+
+.notifications .notif.warn,
+.notifications .notif.warning {
+    border: 4px solid rgb(193, 126, 33);
+    background: rgb(235, 221, 198);
+}
+
+.notifications .notif .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+    height: 40px;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.notifications .notif .header h4 {
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.notifications .notif .header svg {
+    height: 50%;
+    width: auto;
+
+    margin-left: auto;
+}
+
+.notifications .notif .header svg:hover {
+    animation: over_notif_close 0.5s ease-in-out;
+    transform: scale(1.2);
+}
+
+@keyframes over_notif_close {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+.notifications .notif .message {
+    margin: 15px auto 10px 0;
+}

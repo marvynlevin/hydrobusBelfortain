@@ -1,0 +1,42 @@
+<nav>
+    <a class="logo" href="/">
+        <img src="{{ url_for('static', filename='images/Logo.png') }}" alt="logo hydrobus belfortain">
+    </a>
+    <div class="buttons">
+            <ul>
+                <li class="menu-deroulant">
+                    <a href="/controles/show" class="nametag">Gestion des contrôles (Baptiste DULIEUX)</a>
+                    <ul class="sous-menu">
+                        <li><a href="/controles/show">Voir les contrôles</a></li>
+                        <li><a href="/controles/show#add_controle">Enregistrer un nouveau contrôle</a></li>
+                        <li><a href="/controles/etat">Etat des contrôles</a></li>
+                    </ul>
+                </li>
+                <li class="menu-deroulant">
+                    <a href="/reservoirs/show" class="nametag">Gestion des réservoirs (Marvyn LEVIN)</a>
+                    <ul class="sous-menu">
+                        <li><a href="/reservoirs/show">Voir les réservoirs</a></li>
+                        <li><a href="/reservoirs/show#new_reservoir">Enregistrer un nouveau réservoir</a></li>
+                        <li><a href="/reservoirs/etat">Etat des réservoirs</a></li>
+                    </ul>
+                </li>
+                <li class="menu-deroulant">
+                    <a href="/flottes_bus/show" class="nametag">Gestion des bus (Cédric COLIN)</a>
+                    <ul class="sous-menu content-bus">
+                        <li><a href="/flottes_bus/show">Lister les flottes et bus</a></li>
+                        <li><a href="/flottes_bus/show#new_bus">Enregistrer un nouveau bus</a></li>
+                        <li><a href="/flottes_bus/etat">Etat des bus</a></li>
+                    </ul>
+                </li>
+                <li class="menu-deroulant">
+                    <a href="/consommation/show" class="nametag">Gestion des pleins (Corentin CONTINO)</a>
+                    <ul class="sous-menu content-bus">
+                        <li><a href="/consommation/show">Lister les consommations</a></li>
+                        <li><a href="/consommation/show#new_consommation">Enregistrer un nouveau plein</a></li>
+                        <li><a href="/consommation/etat">Etat des pleins</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </div>
+
+</nav>

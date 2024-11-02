@@ -1,0 +1,161 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Consommation | HydroBus</title>
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="row_flex page_formatter">
+        <div class="big_docker models_list width_70">
+            <h2>Liste des Consommation</h2>
+
+            <div class=" list_container">
+                <div class="list">
+                    {% for Consomme in consommations %}
+                    <details class="card drop_shadow">
+                            <summary>
+                                <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3 7.56208C3 6.14754 4.14659 5.0002 5.56319 5.0002C6.34439 5.0002 6.9996 5.0002 6.9996 5.0002V3H12V5.0002H14.0016C17.8662 5.0002 21 8.13329 21 11.9977C21 14.2891 21 16.6925 21 18.4399C21 19.1184 20.73 19.7713 20.2494 20.2513C19.7688 20.7314 19.1172 21.0018 18.4368 21.0018C15.015 21.0018 8.98499 21.0018 5.56319 21.0018C4.88279 21.0018 4.23121 20.7314 3.75061 20.2513C3.27001 19.7713 3 19.1184 3 18.4399C3 15.454 3 10.548 3 7.56208Z" stroke="#215D91" stroke-width="1.49348" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 8.87817L16 17.1155L12 12.9948L8 17.1155L12 12.9948L16 8.87402" stroke="#215D91" stroke-width="1.50217" stroke-miterlimit="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <h3>Consommation du ({{ Consomme["date_plein"] }}) du bus {{ Consomme['nom_bus']}} n°-{{ Consomme["id_bus"] }}</h3>
+                            </summary>
+                            <div class="body">
+                            <div class="row_flex">
+                                <div class="left">
+                                <div class="info">
+                                    <h4>Date</h4>
+                                    <p>{{ Consomme}}</p>
+                                </div>
+                                <div class="info">
+                                    <h4>Bus</h4>
+                                    <p>bus {{ Consomme['nom_bus']}} n°-{{ Consomme["id_bus"] }}</p>
+                                </div>
+                            </div>
+                            <div class="right i_love_you">
+                                <div class="card_actions">
+                                    <svg class="popup_delete" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17.625 4.66667L16.6739 19.3491C16.5907 20.635 16.549 21.278 16.2792 21.7656C16.0416 22.1948 15.6832 22.5398 15.2513 22.7553C14.7608 23 14.1346 23 12.8824 23H8.1176C6.86538 23 6.23927 23 5.74868 22.7553C5.31676 22.5398 4.9584 22.1948 4.72082 21.7656C4.45096 21.278 4.40931 20.635 4.32602 19.3491L3.375 4.66667M1 4.66667H20M15.25 4.66667L14.9287 3.67431C14.6172 2.71264 14.4614 2.2318 14.1726 1.87631C13.9175 1.56238 13.59 1.31939 13.22 1.16962C12.8009 1 12.3086 1 11.3236 1H9.67635C8.69144 1 8.1991 1 7.78004 1.16962C7.41003 1.31939 7.08247 1.56238 6.82741 1.87631C6.53856 2.2318 6.38284 2.71264 6.07139 3.67431L5.75 4.66667" stroke="#F44343" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                    <svg class="popup_edit" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22.0795 5.9141L11.649 16.3628C10.6103 17.4033 7.52709 17.8852 6.83829 17.1952C6.14948 16.5051 6.61962 13.4165 7.65829 12.376L18.0997 1.91639C18.3572 1.63497 18.6689 1.40876 19.0162 1.25137C19.3633 1.09398 19.7388 1.00866 20.1198 1.00063C20.5007 0.992597 20.8794 1.06197 21.2329 1.20458C21.5864 1.3472 21.9074 1.56011 22.1765 1.83042C22.4455 2.10073 22.6572 2.42284 22.7986 2.77733C22.9399 3.13184 23.0083 3.51134 22.9992 3.89298C22.9901 4.27462 22.9039 4.6505 22.7459 4.99786C22.5878 5.34522 22.3611 5.65692 22.0795 5.9141Z" stroke="#2A7AC1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.8401 3.2854H5.37336C4.21347 3.2854 3.10116 3.74696 2.28099 4.56857C1.46083 5.39017 1 6.50449 1 7.66642V18.619C1 19.7809 1.46083 20.8952 2.28099 21.7168C3.10116 22.5384 4.21347 23 5.37336 23H17.4001C19.8164 23 20.6801 21.0285 20.6801 18.619V13.1427" stroke="#2A7AC1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="full">
+                                <div class="info">
+                                    <h4>Quantité d'hydrogène consommée</h4>
+                                    <p>{{ Consomme["consommation_hydrogene"]}}</p>
+                                </div>
+                            </div>
+                                <div class="full">
+                                <div class="info">
+                                    <h4>Distance parcourue</h4>
+                                    <p>{{ Consomme["kilometres_parcourus"]}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popup edit">
+                            <div class="content">
+                                <div class="popup_head">
+                                    <h2>Modification d’une consommation</h2>
+                                    <div class="popup_close">
+                                        <svg  viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.3006 1.30057C-0.433532 3.0347 -0.433532 5.84622 1.3006 7.58034L17.2202 23.5L1.3006 39.4198C-0.433532 41.1538 -0.433532 43.9655 1.3006 45.6996C3.03469 47.4335 5.84625 47.4335 7.58032 45.6996L23.5 29.7796L39.4198 45.6996C41.1539 47.4335 43.9656 47.4335 45.6995 45.6996C47.4335 43.9655 47.4335 41.1538 45.6995 39.4198L29.7796 23.5L45.6995 7.58039C47.4335 5.84631 47.4335 3.03474 45.6995 1.30065C43.9651 -0.433479 41.1539 -0.433479 39.4198 1.30065L23.5 17.2202L7.58032 1.30057C5.84625 -0.433522 3.03469 -0.433522 1.3006 1.30057Z" fill="black"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p>consommation  ({{ Consomme["date_plein"] }})</p>
+                               <form method="post", action="/consommation/edit">
+                                <div class="field row_flex">
+                                    <label for="qt_hydrogène_2">Quantité d'hydrogène consommée</label>
+                                    <input type="number" id="qt_hydrogène_2" name="qt_hydrogène_2">
+                                </div>
+                               <div class="field row_flex">
+                                    <label for="distance_conso_2">Distance parcourue</label>
+                                    <input type="number" id="distance_conso_2" name="distance_conso_2">
+                                </div>
+                                <div class="field row_flex">
+                                      <label for="_2">Date la consommation</label>
+                                      <input type="date" id="date_consommation_2" name="date_consommation_2">
+                                </div>
+                                <div class="field row_flex">
+                                    <label for="id_bus">Bus Concerné</label>
+                                     <select class="form-select" id="id_bus" name="id_bus" required>
+                                              <option selected value="">Aucun bus</option>
+                                              {% for bus in buses %}
+                                                  <option value="{{ Bus['id_bus'] }}">{{ Bus["id_bus"] }} - {{ Bus["id_bus"] }}</option>
+                                              {% endfor %}
+                                     </select>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                        <div class="popup delete">
+                            <div class="content">
+                                <div class="popup_head">
+                                    <h2>Supprimer une consommation</h2>
+                                    <div class="popup_close">
+                                        <svg  viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.3006 1.30057C-0.433532 3.0347 -0.433532 5.84622 1.3006 7.58034L17.2202 23.5L1.3006 39.4198C-0.433532 41.1538 -0.433532 43.9655 1.3006 45.6996C3.03469 47.4335 5.84625 47.4335 7.58032 45.6996L23.5 29.7796L39.4198 45.6996C41.1539 47.4335 43.9656 47.4335 45.6995 45.6996C47.4335 43.9655 47.4335 41.1538 45.6995 39.4198L29.7796 23.5L45.6995 7.58039C47.4335 5.84631 47.4335 3.03474 45.6995 1.30065C43.9651 -0.433479 41.1539 -0.433479 39.4198 1.30065L23.5 17.2202L7.58032 1.30057C5.84625 -0.433522 3.03469 -0.433522 1.3006 1.30057Z" fill="black"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p>Supprimer la consomation n°{{Consomme["id_date"]}}</p>
+
+                                <div class="row_flex action_buttons">
+                                    <button type="button" class="cancel">Annuler</button>
+                                    <form action="/consommation/delete" method="get">
+                                        <input name="id_bus" type="text" value="{{ Consomme['id_bus'] }}" hidden="hidden">
+                                        <button type="submit">Supprimer</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="big_docker no_border no_padding fix_height">
+            <div class="column_flex">
+                <div class="big_docker full_width child auto_horizontal_margin no_left_margin">
+                    <h2>Ajouter une consommation</h2>
+                    <!-- Valeurs du formulaire à récupérer ! -->
+                    <form method="post", action="/consommations/new">
+                       <div class="field row_flex">
+                                    <label for="qt_hydrogène_2">Quantité d'hydrogène consommée</label>
+                                    <input type="number" id="qt_hydrogène_2" name="qt_hydrogène_2" required>
+                                </div>
+                               <div class="field row_flex">
+                                    <label for="distance_conso_2">Distance parcourue</label>
+                                    <input type="number" id="distance_conso_2" name="distance_conso_2" required>
+                                </div>
+                                <div class="field row_flex">
+                                      <label for="_2">Date la consommation</label>
+                                      <input type="date" id="date_consommation_2" name="date_consommation_2" required>
+                                </div>
+                                <div class="field row_flex">
+                                    <label for="id_bus">bus concerné</label>
+                                     <select class="form-select" id="id_bus" name="id_bus" required>
+                                              <option selected value="">Aucun Bus</option>
+                                              {% for bus in buses %}
+                                                  <option value="{{ Consomme['nom_bus'] }}">{{ Consomme['nom_bus'] }} - {{ Consomme['nom_bus'] }}</option>
+                                              {% endfor %}
+                                     </select>
+                                </div>
+
+                        <div class="field row_flex">
+                            <button>Ajouter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+

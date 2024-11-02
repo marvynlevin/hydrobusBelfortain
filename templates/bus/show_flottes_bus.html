@@ -1,0 +1,221 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Flottes et bus | HydroBus</title>
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="row_flex page_formatter">
+        <div class="big_docker models_list width_70">
+            <h2>Liste des Flottes et bus</h2>
+
+            <div class=" list_container">
+                <div class="list">
+                    <!-- Boucle for pour les bus & pour les réservoirs -->
+                    {% if flottes | length < 1 %}
+                        <p style="margin: 20px">Aucune flotte n'existe.</p>
+                    {% else %}
+                        {%  for flotte in flottes %}
+                            <details class="card drop_shadow">
+                            <summary>
+                                <svg width="43" height="41" viewBox="0 0 43 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M36.9977 29.1898C35.8752 29.1954 34.8261 29.5081 33.9352 30.046L33.9606 30.0321L30.1568 26.6282C31.179 25.0923 31.7862 23.2104 31.7862 21.1894C31.7862 19.0044 31.076 16.9821 29.8687 15.335L29.8899 15.3642L34.2133 11.1083C35.0182 11.5475 35.9769 11.8074 36.9963 11.8144H36.9991C40.313 11.8144 43 9.16933 43 5.90718C43 2.64503 40.313 0 36.9991 0C33.6853 0 30.9983 2.64503 30.9983 5.90718C31.0054 6.91349 31.2708 7.85724 31.7311 8.68008L31.7156 8.6495L27.3921 12.9055C25.7726 11.7379 23.7394 11.0374 21.5409 11.0374C20.3154 11.0374 19.142 11.2556 18.0576 11.6531L18.1268 11.6309L17.2175 10.0047C18.2426 8.95251 18.8737 7.52088 18.8737 5.94471C18.8737 2.7034 16.2037 0.0750559 12.911 0.0750559C9.61831 0.0750559 6.94828 2.7034 6.94828 5.94471C6.94828 9.18601 9.61831 11.8144 12.911 11.8144C13.3431 11.8144 13.7653 11.7685 14.1719 11.6823L14.1324 11.6893L15.0388 13.3099C12.6597 15.1377 11.1446 17.9592 11.1446 21.131C11.1446 21.9719 11.252 22.7892 11.4525 23.569L11.4369 23.5008L10.4951 23.8942C9.39381 22.6377 7.77428 21.8454 5.96697 21.8454C2.67144 21.8454 0 24.4752 0 27.7193C0 30.9634 2.67144 33.5931 5.96697 33.5931C9.26249 33.5931 11.9339 30.9634 11.9339 27.7193C11.9339 27.7081 11.9339 27.6956 11.9339 27.6845C11.9226 27.4635 11.9015 27.2592 11.869 27.0591L11.8732 27.0924L12.815 26.6991C14.6548 29.5151 17.8232 31.3539 21.428 31.3539C23.8326 31.3539 26.0423 30.5353 27.7861 29.1662L27.7649 29.1815L31.58 32.5937C31.2157 33.3248 31.0011 34.1838 30.9955 35.0914C30.9955 38.3536 33.6824 41 36.9963 41C40.3102 41 42.9972 38.355 42.9972 35.0928C42.9972 31.8307 40.3102 29.1856 36.9963 29.1856L36.9977 29.1898ZM10.4387 5.90857C10.4387 4.5659 11.5456 3.4762 12.9096 3.4762C14.2736 3.4762 15.3805 4.5659 15.3805 5.90857C15.3805 7.25124 14.2736 8.34094 12.9096 8.34094C11.5456 8.33955 10.4401 7.25124 10.4387 5.90857ZM5.93449 30.1211C4.57053 30.1197 3.46638 29.0327 3.46638 27.6901C3.46638 26.3474 4.57194 25.2591 5.9359 25.2591C7.29986 25.2591 8.40402 26.346 8.40543 27.6887C8.40402 29.0314 7.29845 30.1197 5.93449 30.1211ZM36.9977 3.4762C38.3617 3.4762 39.4687 4.5659 39.4687 5.90857C39.4687 7.25124 38.3617 8.34094 36.9977 8.34094C35.6338 8.34094 34.5268 7.25124 34.5268 5.90857C34.5282 4.5659 35.6338 3.47759 36.9977 3.4762ZM14.6746 21.1977C14.6746 21.1964 14.6746 21.195 14.6746 21.1936C14.6746 17.5033 17.7131 14.5122 21.4619 14.5122C23.337 14.5122 25.0341 15.2614 26.2626 16.4706L26.264 16.472L26.2654 16.4734C27.4938 17.6826 28.252 19.3533 28.252 21.1977C28.252 24.8894 25.2121 27.8805 21.4633 27.8805C17.7145 27.8805 14.6746 24.888 14.6746 21.1977ZM36.9977 37.5294C35.6338 37.5294 34.5268 36.4397 34.5268 35.097C34.5268 33.7543 35.6338 32.6646 36.9977 32.6646C38.3617 32.6646 39.4687 33.7543 39.4687 35.097C39.4673 36.4397 38.3617 37.528 36.9977 37.5294Z" fill="#215D91"></path>
+                                </svg>
+                                <h3>{{ flotte["nom_flotte"] }}</h3>
+                            </summary>
+                            <div class="list">
+                                {% if flotte["buses"] | length < 1 %}
+                                    <p style="margin: 20px;">Aucun bus n'est associé à cette flotte.</p>
+                                {% else %}
+                                    {% for bus in flotte["buses"] %}
+                                        <details class="card drop_shadow">
+                                <summary>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 0C9.65458 0 6.73188 2.38419e-07 4.91593 1.81594C3.26814 3.46376 3.11556 6.02286 3.10144 10.8501H1.55C0.693966 10.8501 0 11.544 0 12.4001V13.9501C0 14.438 0.229695 14.8973 0.62 15.1901L3.1 17.0501C3.11412 21.8773 3.26814 24.4363 4.91593 26.0841C5.29131 26.4596 5.714 26.7573 6.2 26.9935V29.45C6.2 30.3061 6.89397 31 7.75 31H10.075C10.931 31 11.625 30.3061 11.625 29.45V27.8715C12.752 27.9001 14.034 27.9001 15.5 27.9001C16.966 27.9001 18.248 27.9001 19.375 27.8715V29.45C19.375 30.3061 20.0689 31 20.925 31H23.25C24.1061 31 24.8 30.3061 24.8 29.45V26.9935C25.2861 26.7573 25.7086 26.4596 26.084 26.0841C27.7318 24.4363 27.8859 21.8773 27.9 17.0501L30.38 15.1901C30.7703 14.8973 31 14.438 31 13.9501V12.4001C31 11.544 30.3061 10.8501 29.45 10.8501H27.8986C27.8845 6.02286 27.7318 3.46376 26.084 1.81594C24.2682 2.38419e-07 21.3454 0 15.5 0ZM5.425 11.6251C5.425 13.8171 5.425 14.9131 6.10598 15.5942C6.78695 16.2751 7.88297 16.2751 10.075 16.2751H15.5H20.925C23.117 16.2751 24.213 16.2751 24.8941 15.5942C25.575 14.9131 25.575 13.8171 25.575 11.6251V7.75004C25.575 5.558 25.575 4.46198 24.8941 3.781C24.213 3.10002 23.117 3.10002 20.925 3.10002H15.5H10.075C7.88297 3.10002 6.78695 3.10002 6.10598 3.781C5.425 4.46198 5.425 5.558 5.425 7.75004V11.6251ZM6.5875 21.7001C6.5875 21.0581 7.10797 20.5376 7.75 20.5376H10.075C10.717 20.5376 11.2375 21.0581 11.2375 21.7001C11.2375 22.3421 10.717 22.8626 10.075 22.8626H7.75C7.10797 22.8626 6.5875 22.3421 6.5875 21.7001ZM24.4125 21.7001C24.4125 21.0581 23.892 20.5376 23.25 20.5376H20.925C20.283 20.5376 19.7625 21.0581 19.7625 21.7001C19.7625 22.3421 20.283 22.8626 20.925 22.8626H23.25C23.892 22.8626 24.4125 22.3421 24.4125 21.7001Z" fill="#215D91"></path>
+                                    </svg>
+                                    <h3>{{ bus["nom_bus"] }}</h3>
+                                </summary>
+                                <div class="body row_flex">
+                                <!-- On met le contenu ici -->
+                                <div class="left">
+                                    <div class="info">
+                                        <h4>Conso. mensuelle:</h4>
+                                        <p>{{ bus["conso_moyenne"] | round(2) }} Kg/100 Km</p>
+                                    </div>
+                                     <div class="info">
+                                        <h4>Conso. totale:</h4>
+                                        <p>{{ bus["conso_totale"] | round(2) }} Kg</p>
+                                    </div>
+                                    <div class="info">
+                                        <h4>Distance parcourue mensuelle :</h4>
+                                        <p>{{ bus["distance_mensuelle"] | round(2) }} Km</p>
+                                    </div>
+                                </div>
+                                <div class="right i_love_you">
+                                     <div class="card_actions">
+                                        <svg class="popup_delete" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                             <path d="M17.625 4.66667L16.6739 19.3491C16.5907 20.635 16.549 21.278 16.2792 21.7656C16.0416 22.1948 15.6832 22.5398 15.2513 22.7553C14.7608 23 14.1346 23 12.8824 23H8.1176C6.86538 23 6.23927 23 5.74868 22.7553C5.31676 22.5398 4.9584 22.1948 4.72082 21.7656C4.45096 21.278 4.40931 20.635 4.32602 19.3491L3.375 4.66667M1 4.66667H20M15.25 4.66667L14.9287 3.67431C14.6172 2.71264 14.4614 2.2318 14.1726 1.87631C13.9175 1.56238 13.59 1.31939 13.22 1.16962C12.8009 1 12.3086 1 11.3236 1H9.67635C8.69144 1 8.1991 1 7.78004 1.16962C7.41003 1.31939 7.08247 1.56238 6.82741 1.87631C6.53856 2.2318 6.38284 2.71264 6.07139 3.67431L5.75 4.66667" stroke="#F44343" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                        <svg class="popup_edit" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                             <path d="M22.0795 5.9141L11.649 16.3628C10.6103 17.4033 7.52709 17.8852 6.83829 17.1952C6.14948 16.5051 6.61962 13.4165 7.65829 12.376L18.0997 1.91639C18.3572 1.63497 18.6689 1.40876 19.0162 1.25137C19.3633 1.09398 19.7388 1.00866 20.1198 1.00063C20.5007 0.992597 20.8794 1.06197 21.2329 1.20458C21.5864 1.3472 21.9074 1.56011 22.1765 1.83042C22.4455 2.10073 22.6572 2.42284 22.7986 2.77733C22.9399 3.13184 23.0083 3.51134 22.9992 3.89298C22.9901 4.27462 22.9039 4.6505 22.7459 4.99786C22.5878 5.34522 22.3611 5.65692 22.0795 5.9141Z" stroke="#2A7AC1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            <path d="M10.8401 3.2854H5.37336C4.21347 3.2854 3.10116 3.74696 2.28099 4.56857C1.46083 5.39017 1 6.50449 1 7.66642V18.619C1 19.7809 1.46083 20.8952 2.28099 21.7168C3.10116 22.5384 4.21347 23 5.37336 23H17.4001C19.8164 23 20.6801 21.0285 20.6801 18.619V13.1427" stroke="#2A7AC1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="info">
+                                        <h4>Distance totale parcourue :</h4>
+                                        <p>{{ bus["distance_totale"] | round }} Km</p>
+                                    </div>
+                                    <div class="info">
+                                        <h4>Nombre de pleins :</h4>
+                                        <p>{{ bus["nombre_pleins"] | round }} pleins</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popup edit">
+                            <div class="content">
+                                <div class="popup_head">
+                                    <h2>Modification d’un bus</h2>
+                                    <div class="popup_close">
+                                        <svg  viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1.3006 1.30057C-0.433532 3.0347 -0.433532 5.84622 1.3006 7.58034L17.2202 23.5L1.3006 39.4198C-0.433532 41.1538 -0.433532 43.9655 1.3006 45.6996C3.03469 47.4335 5.84625 47.4335 7.58032 45.6996L23.5 29.7796L39.4198 45.6996C41.1539 47.4335 43.9656 47.4335 45.6995 45.6996C47.4335 43.9655 47.4335 41.1538 45.6995 39.4198L29.7796 23.5L45.6995 7.58039C47.4335 5.84631 47.4335 3.03474 45.6995 1.30065C43.9651 -0.433479 41.1539 -0.433479 39.4198 1.30065L23.5 17.2202L7.58032 1.30057C5.84625 -0.433522 3.03469 -0.433522 1.3006 1.30057Z" fill="black"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <p>Bus "{{ bus["nom_bus"] }}"</p>
+                                <form method="post" action="/flottes_bus/bus/edit" class="spaced">
+                                    <input name="id_bus" type="text" hidden value="{{ bus["id_bus"] }}">
+                                    <div class="field row_flex">
+                                        <label for="nom_bus{{ bus["id_bus"] }}">Nom du bus</label>
+                                       <input type="text" id="nom_bus{{ bus["id_bus"] }}" name="nom_bus" value="{{ bus["nom_bus"] }}" placeholder="Nom du bus">
+                                  </div>
+                                    <div class="field row_flex">
+                                      <label for="date_service{{ bus["id_bus"] }}">Date d'achat</label>
+                                        <input type="date" id="date_service{{ bus["id_bus"] }}" name="date_service" value="{{ bus["date_achat_bus"] }}">
+                                    </div>
+                                    <div class="field row_flex">
+                                        <label for="id_modele_bus{{ bus["id_bus"] }}">Modèle de bus</label>
+                                         <select class="form-select" id="id_modele_bus{{ bus["id_bus"] }}" name="id_modele_bus" required>
+                                             {% for model in bus_models %}
+                                                 {% if model["id_modele_bus"] == bus["id_modele_bus"] %}
+                                                    <option selected value="{{ model["id_modele_bus"] }}">{{ model["nom_modele_bus"] }}</option>
+                                                 {% else %}
+                                                    <option value="{{ model["id_modele_bus"] }}">{{ model["nom_modele_bus"] }}</option>
+                                                 {% endif %}
+                                             {% endfor %}
+                                       </select>
+                                    </div>
+                                    <div class="field row_flex">
+                                        <label for="id_flotte{{ bus["id_bus"] }}">Flotte</label>
+                                        <select class="form-select" id="id_flotte{{ bus["id_bus"] }}" name="id_flotte" required>
+                                            {% for flotte in flottes %}
+                                                 {% if flotte["id_flotte"] == bus["id_flotte"] %}
+                                                     <option selected value="{{ flotte["id_flotte"] }}">{{ flotte["nom_flotte"] }}</option>
+                                                 {% else %}
+                                                     <option value="{{ flotte["id_flotte"] }}">{{ flotte["nom_flotte"] }}</option>
+                                                 {% endif %}
+                                             {% endfor %}
+                                        </select>
+                                    </div>
+                                    <button>Enregistrer les modifications</button>
+                                </form>
+                            </div>
+                        </div>
+                            <div class="popup delete">
+                                <div class="content">
+                                    <div class="popup_head">
+                                        <h2>Supprimer un bus</h2>
+                                        <div class="popup_close">
+                                            <svg  viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.3006 1.30057C-0.433532 3.0347 -0.433532 5.84622 1.3006 7.58034L17.2202 23.5L1.3006 39.4198C-0.433532 41.1538 -0.433532 43.9655 1.3006 45.6996C3.03469 47.4335 5.84625 47.4335 7.58032 45.6996L23.5 29.7796L39.4198 45.6996C41.1539 47.4335 43.9656 47.4335 45.6995 45.6996C47.4335 43.9655 47.4335 41.1538 45.6995 39.4198L29.7796 23.5L45.6995 7.58039C47.4335 5.84631 47.4335 3.03474 45.6995 1.30065C43.9651 -0.433479 41.1539 -0.433479 39.4198 1.30065L23.5 17.2202L7.58032 1.30057C5.84625 -0.433522 3.03469 -0.433522 1.3006 1.30057Z" fill="black"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                <p>Bus "{{ bus["nom_bus"] }}"</p>
+                                <div class="row_flex action_buttons">
+                                    <button type="button" class="cancel">Annuler</button>
+                                    <form action="/flottes_bus/bus/delete" method="get">
+                                        <input name="id_bus_delete" type="text" value="{{ bus["id_bus"] }}" hidden="hidden">
+                                        <button type="submit">Supprimer</button>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                            </details>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </details>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="big_docker no_border no_padding">
+            <div class="column_flex">
+                <div class="big_docker full_width child row_flex no_border no_margin_padding">
+                    <div class="big_docker full_width child auto_horizontal_margin no_left_margin fix_height">
+                        <h2>Ajouter un Bus</h2>
+                        <form method="post" action="/flottes_bus/bus/new" class="spaced">
+                            <div class="field row_flex">
+                                <label for="nom_bus">Nom du bus</label>
+                                <input type="text"
+                                       id="nom_bus"
+                                       maxlength="50"
+                                       name="nom_bus"
+                                       placeholder="Nom du bus"
+                                       value="{{ add_nom_bus }}"
+                                       required>
+                            </div>
+                            <div class="field row_flex">
+                                <label for="date_service">Date d'achat</label>
+                                <input type="date"
+                                       id="date_service"
+                                       name="date_service"
+                                       value="{{ add_date_service }}"
+                                       required>
+                            </div>
+                            <div class="field row_flex">
+                                <label for="id_flotte">Flotte</label>
+                                <select class="form-select" id="id_flotte" name="id_flotte" required>
+                                    {% if add_id_flotte == '' %}
+                                        <option value="" selected="">Aucune flotte</option>
+                                    {% else %}
+                                        <option value="">Aucune flotte</option>
+                                    {% endif %}
+                                    {% for flotte in flottes %}
+                                        {% if flotte == add_id_flotte %}
+                                            <option selected="" value="{{ flotte["id_flotte"] }}">{{ flotte["nom_flotte"] }}</option>
+                                        {% else %}
+                                            <option value="{{ flotte["id_flotte"] }}">{{ flotte["nom_flotte"] }}</option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="field row_flex">
+                                  <label for="id_modele_bus">Modèle de bus</label>
+                                  <select class="form-select" id="id_modele_bus" name="id_modele_bus" required>
+                                      <option value="" selected="">Modèle non-sélectionné</option>
+                                      {% for model in bus_models %}
+                                          <option value="{{ model["id_modele_bus"] }}">{{ model["nom_modele_bus"] }}</option>
+                                      {% endfor %}
+                                  </select>
+                              </div>
+
+                            <button>Ajouter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="big_docker full_width yeet_padding">
+                    <h2>Rechercher un état</h2>
+                    <p>Pour rechercher un état de bus, veuillez accéder à cette page</p>
+                    <a class="button" href="/flottes_bus/etat">Etat bus</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+

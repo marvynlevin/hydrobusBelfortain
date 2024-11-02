@@ -1,0 +1,184 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>Etat réservoirs | HydroBus</title>
+{% endblock %}
+
+{% block body %}
+<main>
+    <div class="row_flex page_formatter">
+        <div class="big_docker models_list width_70">
+            <h2>Liste des réservoirs</h2>
+
+            <div class=" list_container">
+                <div class="list">
+                    {% if all_reservoirs|length == 0 %}
+                        <p style="padding: 0px 0px 30px 20px">Aucun réservoir n'est recensé</p>
+                    {% else %}
+                        {% for reservoir in all_reservoirs %}
+                            <details class="card drop_shadow">
+                                <summary>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="48" viewBox="0 0 16 48" fill="none">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8 2.4H10.6667V4.79999H16V7.20005H10.6667V9.69953C13.6935 10.2708 16 13.2324 16 16.8V19.2H3.2V16.8C3.2 13.2324 5.50651 10.2708 8.53333 9.69953V7.20005H6.21792C5.77867 8.59817 4.59325 9.60005 3.2 9.60005C1.43272 9.60005 0 7.98821 0 5.99999C0 4.01177 1.43272 2.4 3.2 2.4C4.59325 2.4 5.77867 3.40177 6.21792 4.79999H8.53333V2.4H6.4V0H12.8V2.4ZM3.2 21.6V46.8C3.2 47.4626 3.67755 48 4.26667 48H14.9333C15.5224 48 16 47.4626 16 46.8V21.6H3.2ZM3.2 4.79999C2.61091 4.79999 2.13333 5.33726 2.13333 5.99999C2.13333 6.66274 2.61091 7.20005 3.2 7.20005C3.78911 7.20005 4.26667 6.66274 4.26667 5.99999C4.26667 5.33726 3.78911 4.79999 3.2 4.79999Z" fill="#215D91"/>
+                                    </svg>
+                                    <h3>Réservoir n°{{reservoir["id_reservoir"]}}</h3>
+                                </summary>
+                                <div class="body row_flex">
+                                    <!-- On met le contenu ici -->
+                                    <div class="left">
+                                        <div class="info">
+                                            <h4>Taille réservoir :</h4>
+                                            <p>{{reservoir["taille_reservoir"] | round}} L</p>
+                                        </div>
+                                        <div class="info">
+                                            <h4>Position dans le bus :</h4>
+                                            <p>{{reservoir["position_dans_bus"]}}</p>
+                                        </div>
+                                        <div class="info">
+                                            <h4>Nombre de cycles réels :</h4>
+                                            <p>{{reservoir["nb_cycles_reels"]}}
+                                                {% if reservoir["nb_cycles_reels"] <= 1 %}
+                                                    cycle
+                                                {%else%}
+                                                    cycles
+                                                {%endif%}</p>
+                                        </div>
+                                        <div class="info">
+                                            <h4>Nombre de contrôles :</h4>
+                                            <p>{{reservoir["nb_controle"]}}
+                                                {% if reservoir["nb_controle"] <= 1 %}
+                                                    contrôle
+                                                {%else%}
+                                                    contrôles
+                                                {%endif%}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="right i_love_you">
+                                        <div class="info">
+                                            <h4>Modèle du réservoir :</h4>
+                                            <p>{{reservoir["modele_reservoir"]}}</p>
+                                        </div>
+                                        <div class="info">
+                                            <h4>Date de mise en service :</h4>
+                                            <p>{{reservoir["date_mise_service"]}}</p>
+                                        </div>
+                                        <div class="info">
+                                            <h4>Date de retrait du service :</h4>
+                                            <p>{{reservoir["date_retrait_service"]}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="big_docker no_border no_padding fix_height">
+            <div class="column_flex">
+                <div class="big_docker full_width child auto_horizontal_margin no_left_margin">
+                    <h2>Paramètrage de l'état des réservoirs</h2>
+                    <!-- Valeurs du formulaire à récupérer ! -->
+                    <form action="/reservoirs/etat" method="get">
+                        <!--<div class="field row_flex">
+                            <label for="filter_word">Filtrer par mot clé</label>
+                            <input class="form-control"
+                                   value="{{ filter_word }}"
+                                   id="filter_word"
+                                   type="text"
+                                   name="filter_word"
+                                   placeholder="Entrer id d'un réservoir">
+                        </div>-->
+                        <div class="field row_flex">
+                              <label for="date_mise_service">Date de mise en service minimum</label>
+                              <input type="date"
+                                     value="{{ date_mise_service }}"
+                                     id="date_mise_service"
+                                     name="date_mise_service">
+                        </div>
+                        <div class="field row_flex">
+                            <label for="date_retrait_service">Date de retrait du service maximum</label>
+                            <input type="date"
+                                   value="{{ date_retrait_service }}"
+                                   id="date_retrait_service"
+                                   name="date_retrait_service">
+                        </div>
+                        <div class="field row_flex">
+                            <label for="taille_reservoir_min">Taille réservoir minimum</label>
+                            <input type="number"
+                                   value="{{ taille_reservoir_min }}"
+                                   id="taille_reservoir_min"
+                                   name="taille_reservoir_min"
+                                   placeholder="Entrer la taille minimum">
+                        </div>
+                        <div class="field row_flex">
+                            <label for="taille_reservoir_max">Taille réservoir maximum</label>
+                            <input type="number"
+                                   value="{{ taille_reservoir_max }}"
+                                   id="taille_reservoir_max"
+                                   name="taille_reservoir_max"
+                                   placeholder="Entrer la taille maximum">
+                        </div>
+                        <div class="field row_flex">
+                            <label for="modele_filter">Modèle réservoir</label>
+                            <select class="form-select" id="modele_filter" name="modele_filter">
+                                {% if bus_model == None %}
+                                    <option value="" selected="">Aucun modèle</option>
+                                {% else %}
+                                    <option value="">Aucun modèle</option>
+                                {% endif %}
+                                {% for modele in modeles_reservoirs %}
+                                    {% if modele["id_modele_reservoir"] == all_reservoirs["id_modele_reservoir"] %}
+                                        <option selected="" value="{{ modele["id_modele_reservoir"] }}">{{ modele["modele_reservoir"] }}</option>
+                                    {% else %}
+                                        <option value="{{ modele["id_modele_reservoir"] }}">{{ modele["modele_reservoir"] }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="field row_flex">
+                            <label for="position_filter">Position réservoir</label>
+                            <select class="form-select" id="position_filter" name="position_filter">
+                                {% if bus_model == None %}
+                                    <option value="" selected="">Aucune position</option>
+                                {% else %}
+                                    <option value="">Aucune position</option>
+                                {% endif %}
+                                {% set unique_position = {} %}
+                                {% for position in positions %}
+                                    {% if position["position_dans_bus"] not in unique_position and position["position_dans_bus"] is not none and position["position_dans_bus"] != '' %}
+                                        <option value="{{ position['position_dans_bus'] }}">{{ position['position_dans_bus'] }}</option>
+                                        {% set _ = unique_position.update({position['position_dans_bus']: true}) %}
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="field row_flex">
+                            <label for="cycle_reel_min">Nombre de cycle réel minimum</label>
+                            <input type="number"
+                                   value="{{ cycle_reel_min }}"
+                                   id="cycle_reel_min"
+                                   name="cycle_reel_min"
+                                   placeholder="Entrer le nombre de cycles minimum">
+                        </div>
+                        <div class="field row_flex">
+                            <label for="cycle_reel_max">Nombre de cycle réel maximum</label>
+                            <input type="number"
+                                   value="{{ cycle_reel_max }}"
+                                   id="cycle_reel_max"
+                                   name="cycle_reel_max"
+                                   placeholder="Entrer le nombre de cycles maximum">
+                        </div>
+                        <div class="field row_flex">
+                            <button type="submit">Filtrer</button>
+                            <a class="button" href="/reservoirs/etat">Réinitialiser les filtres</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
