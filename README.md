@@ -10,15 +10,11 @@
   - Cédric COLIN
 - **Objectif** : Développer un système de gestion de flotte pour les bus Hydrobus de Belfort, intégrant le suivi des véhicules et de leurs réservoirs d'hydrogène afin d'optimiser la gestion et l'efficacité opérationnelle.
 
----
-
 ## Documents liés au projet
 - [Analyse des besoins-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_analyse.pdf)
 - [MCD & MLD](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_modeleConceptionRelationnel.pdf)
 - [Etude choix poste-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_etude.pdf)
 - [Notice installation poste-pdf](./docs/S1B1G10_LEVIN_Marvyn_COLIN_Cédric_DULIEUX_Baptiste_CONTINO_Corentin_architecture.pdf)
-
----
 
 ## Cahier des Charges
 
@@ -49,8 +45,6 @@
   - Analyse des besoins, conception du MCD, gestion des pleins
 - **Cédric COLIN** :
   - Analyse des besoins, conception du MCD, gestion des bus
-
----
 
 ## Concept de Modélisation
 
@@ -97,8 +91,6 @@
 - **Organisation de l'interface API et base de données** : Inspirée par des solutions de gestion de flotte modernes, ce projet adopte une architecture efficace pour l'interrogation des données en temps réel.
 
 ![1](./docs/img/hydrpPresentation.png)
-
----
 
 ## Instructions d'Exécution sur Windows
 
