@@ -113,7 +113,9 @@ CREATE USER 'identifiant'@'localhost' IDENTIFIED BY 'votre_mot_de_passe';
 GRANT ALL PRIVILEGES ON *.* TO 'identifiant'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
-# Créer la base de données
+# Se connecter avec l'identifiant identifiant
+mysql -u identifiant -p
+
 CREATE DATABASE hydrobus;
 USE hydrobus;
 SHOW DATABASES;
